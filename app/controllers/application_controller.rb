@@ -3,5 +3,6 @@ class ApplicationController < ActionController::Base
 
   def hello
     render html: "hello, world!"
+    # test push after ssh key added
   end
 end
