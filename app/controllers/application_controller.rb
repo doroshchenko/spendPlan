@@ -7,6 +7,7 @@ class ApplicationController < ActionController::Base
   def hello
     if current_user
       @user = current_user.email
+      @incomes = UserIncome.where(user_id: current_user.id).sum(:amount)
     else
       redirect_to :controller => 'sessions', :action => 'new'
     # test push after ssh key added
@@ -15,5 +16,6 @@ class ApplicationController < ActionController::Base
 
   def logout
     reset_session
+    redirect_to root_path
   end
 end

@@ -1,2 +1,7 @@
 hello <%= @user %>
+<div>
+  <h3>incomes</h3>
+  <p> amount: <%= @incomes %>
+    <%= link_to "Ballance", user_income_index_path %>
+  </p>
 <%= link_to "logout", controller: "application", action: "logout" %>

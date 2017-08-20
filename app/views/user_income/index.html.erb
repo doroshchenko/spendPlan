@@ -1,0 +1,16 @@
+<h1>Your incomes</h1>
+<div>
+  <p>Add an amount</p>
+  <%= form_for :user_income , url: 'create' do |f| %>
+    <%= f.label :amount %>
+    <%= f.text_field :amount%>
+    <%= f.submit %>
+  <% end %>
+</div>
+<% @incomes.each do |income| %>
+  <p>amount: <%= income.amount %> added: <%= income.created_at %>
+    <%= link_to "delete", user_income_destroy_path(income), method: :delete, data: {confirm:  "Are you sure?" } %>
+  </p>
+
+<% end %>
+<%= link_to "Back", root_path %>
