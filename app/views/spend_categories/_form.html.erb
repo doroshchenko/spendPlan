@@ -1,0 +1,14 @@
+<div>
+  <h2>Create a category</h2>
+  <%= form_for(SpendCategory.new) do |c| %>
+    <p>
+      <%= c.label :name %>
+      <%= c.text_field :name %>
+    </p>
+    <p>
+      <%= c.label :desctiption %>
+      <%= c.text_area :description %>
+    </p>
+    <%= c.submit %>
+  <% end %>
+</div>

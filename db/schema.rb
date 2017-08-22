@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170816124221) do
+ActiveRecord::Schema.define(version: 20170822134550) do
 
   create_table "password_resets", force: :cascade do |t|
     t.integer  "user_id"
@@ -18,6 +18,24 @@ ActiveRecord::Schema.define(version: 20170816124221) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_password_resets_on_user_id"
+  end
+
+  create_table "spend_categories", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.boolean  "is_default"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "spend_category_users", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "spend_category_id"
+    t.integer  "amount"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.index ["spend_category_id"], name: "index_spend_category_users_on_spend_category_id"
+    t.index ["user_id"], name: "index_spend_category_users_on_user_id"
   end
 
   create_table "user_incomes", force: :cascade do |t|

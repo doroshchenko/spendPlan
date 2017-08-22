@@ -1,0 +1,9 @@
+<h1>
+  Spend categories
+</h1>
+<%= render 'form' %>
+<div>
+  <% @categories.each do |category| %>
+    <p><%= category.spend_category.name %></p>
+  <% end %>
+</div>
