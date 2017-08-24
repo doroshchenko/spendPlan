@@ -24,8 +24,9 @@ ActiveRecord::Schema.define(version: 20170822134550) do
     t.string   "name"
     t.text     "description"
     t.boolean  "is_default"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer  "default_amount"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
   create_table "spend_category_users", force: :cascade do |t|

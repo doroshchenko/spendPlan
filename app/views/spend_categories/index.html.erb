@@ -1,9 +1,22 @@
 <h1>
   Spend categories
 </h1>
-<%= render 'form' %>
+<h2>You've distributed  <%= @summ_amount %> % of your money </h2>
 <div>
-  <% @categories.each do |category| %>
-    <p><%= category.spend_category.name %></p>
+  <%= link_to "Back", root_path %>
+</div>
+<%= render 'form' %>
+<% flash.each do |key, value| %>
+    <div style="color:red" class="alert alert-<%= key %>"><%= value %></div>
+<% end %>
+<div>
+  <% @user_categories.each do |category| %>
+    <p>
+      <span><%= category.spend_category.name %> - <%= category.amount %> %</span>
+      <%= render :partial => "spend_category_user/form", :locals => {:spend_category_user => category} %>
+      <%= link_to "Delete", spend_category_user_path(id: category.id),
+                  method: :delete,
+                  data: {confirm: 'Are you sure?'} %>
+    </p>
   <% end %>
 </div>

@@ -7,13 +7,13 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 categories = [
-    { name: 'Финансовая независимость', description: 'Деньги, на которых можно построить бизнес, которые будут работать на вас'},
-    { name: 'Образовательный', description: 'Деньги на образование'},
-    { name: 'Сбережения и долгосрочные расходы', description: 'Накопительный счет'},
-    { name: 'Повседневные расходы', description: 'Траты на жизнь'},
-    { name: 'Развлекательный счет', description: 'Деньги на развлечения'},
-    { name: 'Благотворительный', description: 'Пожертвования и помощь'},
+    { name: 'Финансовая независимость', description: 'Деньги, на которых можно построить бизнес, которые будут работать на вас', amount: 10},
+    { name: 'Образовательный', description: 'Деньги на образование', amount: 10},
+    { name: 'Сбережения и долгосрочные расходы', description: 'Накопительный счет', amount: 10},
+    { name: 'Повседневные расходы', description: 'Траты на жизнь', amount: 50},
+    { name: 'Развлекательный счет', description: 'Деньги на развлечения', amount: 10},
+    { name: 'Благотворительный', description: 'Пожертвования и помощь', amount: 10},
 ]
 categories.each do |category|
-  SpendCategory.create( name:category[:name], description: category[:description], is_default: true)
+  SpendCategory.create( name: category[:name], description: category[:description], is_default: true, default_amount: category[:amount])
 end

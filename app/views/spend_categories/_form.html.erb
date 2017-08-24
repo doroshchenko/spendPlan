@@ -1,6 +1,19 @@
 <div>
   <h2>Create a category</h2>
-  <%= form_for(SpendCategory.new) do |c| %>
+  <%= form_for @category  do |c| %>
+      <% if @category.errors.any? %>
+          <div id="error_explanation">
+            <h2>
+              <%= pluralize(@category.errors.count, "error") %> prohibited
+              this category from being saved:
+            </h2>
+            <ul>
+              <% @category.errors.full_messages.each do |msg| %>
+                  <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
+      <% end %>
     <p>
       <%= c.label :name %>
       <%= c.text_field :name %>
@@ -9,6 +22,10 @@
       <%= c.label :desctiption %>
       <%= c.text_area :description %>
     </p>
+      <p>
+        <%= c.label :default_amount %>
+        <%= c.text_field :default_amount %>
+      </p>
     <%= c.submit %>
   <% end %>
 </div>

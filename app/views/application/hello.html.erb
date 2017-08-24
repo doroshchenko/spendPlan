@@ -1,8 +1,10 @@
 hello <%= @user %>
 <div>
   <h3>incomes</h3>
-  <p> amount: <%= @incomes %>
-    <%= link_to "Ballance", user_income_index_path %>
+  <p> Adjust :
+    <%= link_to "Ballance", user_income_index_path %> ,
     <%= link_to "Categories", spend_categories_path %>
   </p>
+  <p> Cash amount: <%= @incomes %> </p>
+  <p> Distributed: <%= @distributed %> %</p>
 <%= link_to "logout", controller: "application", action: "logout" %>
