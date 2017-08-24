@@ -1,0 +1,9 @@
+<div class="categories_block">
+  <% @spend_categories.each do |category_user| %>
+    <div>
+      <%= link_to "#{category_user.spend_category.name} - #{category_user.amount} %" , spend_categories_path %>
+      <% category_user.spend_entries %>
+    </div>
+  <% end %>
+</div>
+<div style="clear: both"></div>

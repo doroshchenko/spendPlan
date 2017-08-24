@@ -1,0 +1,22 @@
+<%= form_for(spend_entry) do |f| %>
+  <% if spend_entry.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(spend_entry.errors.count, "error") %> prohibited this spend_entry from being saved:</h2>
+
+      <ul>
+      <% spend_entry.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :amount %>
+    <%= f.text_field :amount %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

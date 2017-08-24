@@ -9,6 +9,8 @@ class ApplicationController < ActionController::Base
       @user = current_user.email
       @incomes = UserIncome.where(user_id: current_user.id).sum(:amount)
       @distributed = current_user.spend_category_users.sum(:amount).to_i
+      @spend_categories = current_user.spend_category_users
+      #User.first.spend_entries.create(spend_category_user: SpendCategoryUser.first, amount: 10)
     else
       redirect_to :controller => 'sessions', :action => 'new'
     # test push after ssh key added

@@ -1,0 +1,9 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @spend_entry.amount %>
+</p>
+
+<%= link_to 'Edit', edit_spend_entry_path(@spend_entry) %> |
+<%= link_to 'Back', spend_entries_path %>

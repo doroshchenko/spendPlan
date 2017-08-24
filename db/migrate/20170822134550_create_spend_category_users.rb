@@ -3,6 +3,7 @@ class CreateSpendCategoryUsers < ActiveRecord::Migration[5.0]
     create_table :spend_category_users do |t|
       t.belongs_to :user, index: true
       t.belongs_to :spend_category, index: true
+
       t.integer :amount
       t.timestamps
     end

@@ -1,0 +1,2 @@
+module SpendEntriesHelper
+end
