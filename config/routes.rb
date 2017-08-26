@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   delete 'user_income/destroy/:id' => 'user_income#destroy' , as: 'user_income_destroy'
   get 'user_income/show'
 
-  resources :spend_category_users, only: [:edit, :update, :destroy]
+  resources :spend_category_users, only: [:show, :edit, :update, :destroy]
   resources :spend_category_users, only: [:none] do
     resources :spend_entries
   end

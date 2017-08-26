@@ -1,4 +1,17 @@
 class SpendCategoryUsersController < ApplicationController
+
+  def show
+    @spend_entry = SpendEntry.new
+    @spend_entries = current_user.spend_entries.where(spend_category_user_id: params[:id])
+    @category = SpendCategoryUser.find(params[:id])
+
+    income_to_spend   = SpendCategoryUser.amount_to_spend(params[:id])
+    total_spent       = @spend_entries.sum(:amount)
+    @spend_category_user_id = @category.id
+    @current_balance = income_to_spend.to_f - total_spent.to_f
+
+  end
+
   def update
     update_amount = params[:spend_category_user][:amount].to_i
     @spend_category_user = SpendCategoryUser.find(params[:spend_category_user][:id])

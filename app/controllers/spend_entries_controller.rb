@@ -28,11 +28,13 @@ class SpendEntriesController < ApplicationController
 
     respond_to do |format|
       if @spend_entry.save
-        format.html { redirect_to @spend_entry, notice: 'Spend entry was successfully created.' }
-        format.json { render :show, status: :created, location: @spend_entry }
+        format.html { redirect_to spend_category_user_path(id: spend_entry_params[:spend_category_user_id]) }
+        #format.json { render :show, status: :created, location: @spend_entry }
       else
-        format.html { render :new }
-        format.json { render json: @spend_entry.errors, status: :unprocessable_entity }
+        format.html { redirect_to spend_category_user_path(id: spend_entry_params[:spend_category_user_id]) }
+
+        #format.html { render :new }
+        #format.json { render json: @spend_entry.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -56,8 +58,10 @@ class SpendEntriesController < ApplicationController
   def destroy
     @spend_entry.destroy
     respond_to do |format|
-      format.html { redirect_to spend_entries_url, notice: 'Spend entry was successfully destroyed.' }
-      format.json { head :no_content }
+      format.html { redirect_to spend_category_user_path(id: params[:spend_category_user_id]) }
+
+      #format.html { redirect_to spend_entries_url, notice: 'Spend entry was successfully destroyed.' }
+      #format.json { head :no_content }
     end
   end
 
@@ -69,6 +73,7 @@ class SpendEntriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def spend_entry_params
-      params.require(:spend_entry).permit(:amount)
+      additional_params = {user_id: current_user.id}
+      params.require(:spend_entry).permit(:amount, :spend_category_user_id).merge(additional_params)
     end
 end

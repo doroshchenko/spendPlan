@@ -1,0 +1,8 @@
+<h1><%= @category.spend_category.name %></h1>
+<div>
+  <h2>Amount: <%= @current_balance%></h2>
+  <p>Entries:</p>
+  <%= render 'spend_entries/form' %>
+  <%= render 'spend_entries/custom_index' %>
+</div>
+

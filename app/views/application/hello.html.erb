@@ -6,7 +6,7 @@ hello <%= @user %>
     <%= link_to "Ballance", user_income_index_path %> ,
     <%= link_to "Categories", spend_categories_path %>
   </p>
-  <p> Cash amount: <%= @incomes %> </p>
+  <p> Cash amount: <%= @incomes %> $</p>
   <p> Distributed: <%= @distributed %> %</p>
   <%= render 'categories' %>
 </div>
