@@ -3,7 +3,7 @@ class UserIncomeController < ApplicationController
   skip_before_filter :verify_authenticity_token
 
   def index
-    @incomes = UserIncome.where(user_id: current_user.id)
+    @incomes = UserIncome.where(user_id: current_user.id).by_month_year(session[:current_month], session[:current_year])
   end
 
   def create

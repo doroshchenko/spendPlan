@@ -1,0 +1,6 @@
+<%= form_tag(controller: "application", action: "set_spend_month", method: "post") do %>
+  <%= label_tag(:q, 'month:') %>
+    <%= select_tag(:month, options_for_select([['August', 8], ['September', 9]], @current_month)) %>
+    <%= select_tag(:year, options_for_select([['2017', 2017], ['2018', 2018]], @current_year)) %>
+    <%= submit_tag('set time period') %>
+<% end %>

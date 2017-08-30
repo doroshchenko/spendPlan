@@ -1,4 +1,4 @@
-class SpendCategory < ApplicationRecord
+class SpendCategory < BaseModel
   has_many :spend_category_users
   has_many :users, :through => :spend_category_users
 

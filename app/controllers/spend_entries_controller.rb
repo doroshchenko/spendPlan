@@ -4,7 +4,7 @@ class SpendEntriesController < ApplicationController
   # GET /spend_entries
   # GET /spend_entries.json
   def index
-    @spend_entries = SpendEntry.all
+    #@spend_entries = SpendEntry.all
   end
 
   # GET /spend_entries/1

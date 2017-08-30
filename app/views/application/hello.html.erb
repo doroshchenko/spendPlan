@@ -1,12 +1,13 @@
 hello <%= @user %>
 <p><%= link_to "logout", controller: "application", action: "logout" %></p>
 <div>
+  <%= render 'time_form' %>
   <h3>incomes</h3>
   <p> Adjust :
     <%= link_to "Ballance", user_income_index_path %> ,
     <%= link_to "Categories", spend_categories_path %>
   </p>
-  <p> Cash amount: <%= @incomes %> $</p>
+  <p> Cash amount: <%= @balance %> $</p>
   <p> Distributed: <%= @distributed %> %</p>
   <%= render 'categories' %>
 </div>

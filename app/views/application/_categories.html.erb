@@ -2,7 +2,7 @@
   <% @spend_categories.each do |category_user| %>
     <div>
       <%= link_to "#{category_user.spend_category.name} - #{category_user.amount} %" , spend_category_user_path(:id => category_user.id) %>
-      <h3><%= SpendCategoryUser.current_balance(category_user.id) %>$</h3>
+      <h3><%= SpendCategoryUser.current_balance(category_user.id, @current_month, @current_year) %>$</h3>
     </div>
   <% end %>
 </div>
