@@ -19,7 +19,7 @@ class SpendCategoryUser < BaseModel
                       .spend_entries
                       .by_month_year(month, year)
                       .sum(:amount)
-    amount_to_spend(id, month, year).to_f - total_spent.to_f
+    (amount_to_spend(id, month, year).to_f - total_spent.to_f).round(3)
   end
 end
 
